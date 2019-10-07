@@ -1,4 +1,4 @@
-package com.stefanini.hackathon.rest.model;
+package com.stefanini.hackathon.rest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,4 +13,5 @@ public class Repositorio {
 	public Map<String, Pessoa> getMapPessoa() {
 		return mapPessoa;
 	}
+
 }

@@ -1,9 +1,10 @@
-package com.stefanini.hackathon.rest.model;
+package com.stefanini.hackathon.rest;
 
 public class Pessoa {
 
 	private String nome;
 	private String cpf;
+	private Conta conta;
 
 	public String getNome() {
 		return nome;
@@ -21,9 +22,17 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
 	@Override
 	public String toString() {
-		return "Pessoa [Nome: " + nome + ", CPF: " + cpf + "]";
+		return "Pessoa [nome: " + nome + ", cpfc: " + cpf + ", conta: " + conta + "]";
 	}
 
 }

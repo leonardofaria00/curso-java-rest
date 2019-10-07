@@ -1,9 +1,18 @@
-package com.stefanini.hackathon.rest.model;
+package com.stefanini.hackathon.rest;
 
 public class Conta {
+	private String id;
 	private String agencia;
 	private String conta;
 	private String senha;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getAgencia() {
 		return agencia;
@@ -31,7 +40,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [agencia: " + agencia + ", conta: " + conta + ", senha: " + senha + "]";
+		return "Conta [id=" + id + ", agencia=" + agencia + ", conta=" + conta + ", senha=" + senha + "]";
 	}
 
 }
