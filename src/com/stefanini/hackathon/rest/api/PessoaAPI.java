@@ -1,4 +1,4 @@
-package com.stefanini.hackathon.rest;
+package com.stefanini.hackathon.rest.api;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -11,6 +11,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import com.stefanini.hackathon.rest.entity.Pessoa;
+import com.stefanini.hackathon.rest.persistence.Repositorio;
 
 @Path("/pessoa")
 @Produces(MediaType.APPLICATION_JSON)
@@ -63,6 +66,14 @@ public class PessoaAPI {
 		System.out.println("Removendo PathParam: " + cpf);
 		repositorio.getMapPessoa().remove(cpf);
 		return Response.ok().build();
+	}
+
+	@POST
+	@Path("/associar")
+	public void vinculaDados() {
+		System.out.println("vinculando dados");
+		System.out.println("Conta: ");
+		System.out.println("Pessoa: ");
 	}
 
 }

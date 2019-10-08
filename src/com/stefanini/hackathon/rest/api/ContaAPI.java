@@ -1,4 +1,4 @@
-package com.stefanini.hackathon.rest;
+package com.stefanini.hackathon.rest.api;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -10,6 +10,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import com.stefanini.hackathon.rest.entity.Conta;
+import com.stefanini.hackathon.rest.persistence.Repositorio;
 
 @Path("/conta")
 @Produces(MediaType.APPLICATION_JSON)
