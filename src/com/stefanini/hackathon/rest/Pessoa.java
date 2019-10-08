@@ -32,7 +32,7 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Pessoa [nome: " + nome + ", cpfc: " + cpf + ", conta: " + conta + "]";
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", conta=" + conta + "]";
 	}
 
 }

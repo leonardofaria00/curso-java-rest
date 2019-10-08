@@ -21,7 +21,7 @@ public class PessoaAPI {
 
 	@GET
 	public Response consultar() {
-		System.out.println("Acesso na tela de pessoas");
+		System.out.println("Listando pessoas");
 		return Response.ok(repositorio.getMapPessoa()).build();
 	}
 
@@ -35,14 +35,23 @@ public class PessoaAPI {
 	@PUT
 	@Path("/{cpf}")
 	public Response alterar(Pessoa pessoa, @PathParam("cpf") String cpf) {
-		System.out.println("Alterando: " + pessoa);
 		pessoa.setCpf(cpf);
+		System.out.println("Alterando: " + pessoa);
 		repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
 		return Response.ok().build();
 	}
 
+	@GET
+	@Path("/{cpf}")
+	public Response consultaPessoaPorCPF(@PathParam("cpf") String cpf) {
+		System.out.println("Buscando pessoa com CPF: " + cpf);
+		Pessoa p = repositorio.getMapPessoa().get(cpf);
+		System.out.println("Pessoa: " + p.getNome());
+		return Response.ok(p).build();
+	}
+
 	@DELETE
-	public Response excluir(@QueryParam("cpf") String cpf) {
+	public Response excluir2(@QueryParam("cpf") String cpf) {
 		System.out.println("Removendo QueryParam: " + cpf);
 		repositorio.getMapPessoa().remove(cpf);
 		return Response.ok().build();
@@ -50,7 +59,7 @@ public class PessoaAPI {
 
 	@DELETE
 	@Path("/{cpf}")
-	public Response excluir2(@PathParam("cpf") String cpf) {
+	public Response excluir(@PathParam("cpf") String cpf) {
 		System.out.println("Removendo PathParam: " + cpf);
 		repositorio.getMapPessoa().remove(cpf);
 		return Response.ok().build();

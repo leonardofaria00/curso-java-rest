@@ -10,8 +10,13 @@ public class Repositorio {
 
 	private Map<String, Pessoa> mapPessoa = new HashMap<>();
 
+	private Map<String, Conta> mapConta = new HashMap<>();
+
 	public Map<String, Pessoa> getMapPessoa() {
 		return mapPessoa;
 	}
 
+	public Map<String, Conta> getMapConta() {
+		return mapConta;
+	}
 }
