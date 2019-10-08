@@ -1,7 +1,7 @@
 # curso-java-rest
 
 #EndPoint
-Lista de Pessoas/ add pessoas
+Lista de Pessoas/ add Pessoas
 http://localhost:8080/curso-java-rest/pessoa
 
 Remove Pessoa
@@ -10,5 +10,5 @@ or
 http://localhost:8080/curso-java-rest/pessoa/12345678901
 
 
-Pessoa
+Lista de Contas/ add Contas
 http://localhost:8080/curso-java-rest/conta
