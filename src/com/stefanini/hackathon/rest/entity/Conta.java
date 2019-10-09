@@ -40,7 +40,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [id=" + id + ", agencia=" + agencia + ", conta=" + conta + ", senha=" + senha + "]";
+		return "Conta [id: " + id + ", agencia: " + agencia + ", conta: " + conta + ", senha: " + senha + "]";
 	}
 
 }

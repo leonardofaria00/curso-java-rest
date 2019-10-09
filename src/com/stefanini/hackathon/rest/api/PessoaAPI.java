@@ -1,5 +1,7 @@
 package com.stefanini.hackathon.rest.api;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -13,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.stefanini.hackathon.rest.entity.Pessoa;
+import com.stefanini.hackathon.rest.exceptions.NegocioException;
+import com.stefanini.hackathon.rest.parcers.PessoaParser;
 import com.stefanini.hackathon.rest.persistence.Repositorio;
 
 @Path("/pessoa")
@@ -23,25 +27,15 @@ public class PessoaAPI {
 	Repositorio repositorio;
 
 	@GET
-	public Response consultar() {
+	public Response consultar() throws NegocioException {
+
+		if (repositorio.getMapPessoa().isEmpty()) {
+			System.out.println("Nao existe usuario cadastrado!");
+			throw new NegocioException("Nao existe usuario cadastrado!");
+		}
+
 		System.out.println("Listando pessoas");
-		return Response.ok(repositorio.getMapPessoa()).build();
-	}
-
-	@POST
-	public Response inserir(Pessoa pessoa) {
-		System.out.println("Salvando: " + pessoa);
-		repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
-		return Response.ok().build();
-	}
-
-	@PUT
-	@Path("/{cpf}")
-	public Response alterar(Pessoa pessoa, @PathParam("cpf") String cpf) {
-		pessoa.setCpf(cpf);
-		System.out.println("Alterando: " + pessoa);
-		repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
-		return Response.ok().build();
+		return Response.ok(new PessoaParser().toMapDTO(repositorio.getMapPessoa())).build();
 	}
 
 	@GET
@@ -51,6 +45,38 @@ public class PessoaAPI {
 		Pessoa p = repositorio.getMapPessoa().get(cpf);
 		System.out.println("Pessoa: " + p.getNome());
 		return Response.ok(p).build();
+	}
+
+	@POST
+	public Response inserir(Pessoa pessoa) throws NegocioException {
+
+		if (repositorio.getMapPessoa().get(pessoa.getCpf()) != null) {
+			System.out.println("CPF ja cadastrado");
+			throw new NegocioException("CPF ja cadastrado!");
+		}
+
+		System.out.println("Salvando: " + pessoa.getNome());
+		repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
+		return Response.ok(new PessoaParser().toMapDTO(repositorio.getMapPessoa())).build();
+	}
+
+	@POST
+	@Path("/multi")
+	public Response inserir(List<Pessoa> listaPessoa) {
+		listaPessoa.forEach(pessoa -> {
+			System.out.println("Salvando: " + pessoa.getNome());
+			repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
+		});
+		return Response.ok(new PessoaParser().toMapDTO(repositorio.getMapPessoa())).build();
+	}
+
+	@PUT
+	@Path("/{cpf}")
+	public Response alterar(Pessoa pessoa, @PathParam("cpf") String cpf) {
+		pessoa.setCpf(cpf);
+		System.out.println("Alterando: " + pessoa);
+		repositorio.getMapPessoa().put(pessoa.getCpf(), pessoa);
+		return Response.ok(new PessoaParser().toMapDTO(repositorio.getMapPessoa())).build();
 	}
 
 	@DELETE
@@ -66,14 +92,6 @@ public class PessoaAPI {
 		System.out.println("Removendo PathParam: " + cpf);
 		repositorio.getMapPessoa().remove(cpf);
 		return Response.ok().build();
-	}
-
-	@POST
-	@Path("/associar")
-	public void vinculaDados() {
-		System.out.println("vinculando dados");
-		System.out.println("Conta: ");
-		System.out.println("Pessoa: ");
 	}
 
 }
