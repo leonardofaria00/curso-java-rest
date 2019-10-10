@@ -1,6 +1,5 @@
-# curso-java-rest
+# EndPoints
 
-# EndPoint
 
 
 # PESSOA 
@@ -29,9 +28,11 @@ http://localhost:8080/curso-java-rest/pessoa/multi
 ]
 
 
+
 GET LIST BY CPF
 
 http://localhost:8080/curso-java-rest/pessoa/12345678900
+
 
 
 PUT
@@ -43,6 +44,7 @@ http://localhost:8080/curso-java-rest/pessoa/12345678900
 }
 
 
+
 PESSOA DELETE
 
 http://localhost:8080/curso-java-rest/pessoa/?cpf=12345678900
@@ -52,7 +54,9 @@ or
 http://localhost:8080/curso-java-rest/pessoa/12345678900
 
 
+
 # CONTA 
+
 
 LIST GET / ADD POST
 
@@ -66,9 +70,11 @@ http://localhost:8080/curso-java-rest/conta
 }
 
 
+
 GET LIST BY ID
 
 http://localhost:8080/curso-java-rest/conta/021185
+
 
 
 PUT
@@ -83,12 +89,15 @@ http://localhost:8080/curso-java-rest/conta/021185
 }
 
 
+
 CONTA DELETE
 
 http://localhost:8080/curso-java-rest/conta/021185
 
 
+
 # ASSICIAR
+
 
 PUT
 

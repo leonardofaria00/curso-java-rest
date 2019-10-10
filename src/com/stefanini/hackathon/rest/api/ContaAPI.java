@@ -53,7 +53,6 @@ public class ContaAPI {
 
 	@POST
 	public Response inserir(Conta conta) throws NegocioException {
-		System.out.println("run");
 		if (repositorio.getMapConta().get(conta.getId()) != null) {
 			System.out.println("Conta ja cadastrada");
 			throw new NegocioException("Conta ja cadastrada!");
