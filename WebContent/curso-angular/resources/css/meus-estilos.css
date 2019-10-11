@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 20px;
+}
+
+h2 {
+	padding: 20px;	
+}
+
+.conteudo-pagina-inicial {
+	position: absolute;
+	top: 40%;
+}
+
+.titulo-pagina-inicial {
+	position: absolute;
+	top: 20%;
+}
+
+.rodape {
+	padding-top: 58%;
+	margin-bottom: 10px;
+}
+
+.copyright-text {
+	padding-left: 210px;
+}
