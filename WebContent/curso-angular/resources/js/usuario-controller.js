@@ -1,8 +1,8 @@
 moduloPrincipal.controller("UsuarioController", UsuarioController);
 
-UsuarioController.$inject = ["$scope", "$rootScope"];
+UsuarioController.$inject = ["$scope", "$rootScope", "UsuarioService"];
 
-function UsuarioController($scope, $rootScope) {
+function UsuarioController($scope, $rootScope, UsuarioService) {
   const self = this;
   self.usuario = {
     nome: "",
@@ -17,4 +17,9 @@ function UsuarioController($scope, $rootScope) {
     $rootScope.usuario = usuario;
     console.log($rootScope.usuario.nome);
   };
+
+  self.buscar = function(){
+    $scope.usarios = UsuarioService.getUsuarios;
+    console.log(UsuarioService.getUsuarios);
+  }
 }
