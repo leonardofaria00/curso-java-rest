@@ -5,6 +5,10 @@ body {
 	margin-top: 20px;
 }
 
+input.ng-invalid-required {
+    border: 1px solid #ff0000;
+}
+
 h2 {
 	padding: 20px;	
 }

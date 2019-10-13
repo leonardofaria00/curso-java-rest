@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="appPrincipal">
+  <head>
+    <title>Curso AngularJS</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/css/fonts.css" />
+    <link rel="stylesheet" href="resources/css/meus-estilos.css" />
+
+    <script src="resources/js/angular.min.js"></script>
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/home-controller.js"></script>
+    <script src="resources/js/usuario-controller.js"></script>
+    <script src="resources/service/usuario-service.js"></script>
+    <!-- <script src="resources/js/login-controller.js"></script> -->
+    <!-- <script src="resources/js/recuperarSenha-controller.js"></script> -->
+    <!-- <script src="resources/service/login-service.js"></script> -->
+  </head>
+
+  <body ng-controller="HomeController as home">
+       
+    <h1>Formulário de Usuário</h1>
+    <div ng-controller="UsuarioController as user">
+      <form ng-submit="user.add(user.usuario)">
+        <div class="form-row">
+        <div class="col">
+          <label>Nome:</label>
+          <input class="form-control col-sm-4" type="text" ng-model="user.usuario.nome" autofocus />
+          {{ user.usuario.nome }}
+          <br />
+        </div>
+      
+        <div class="col">
+        <label>CPF:</label>
+        <input class="form-control col-sm-4" type="text" ng-model="user.usuario.cpf" />
+        {{ user.usuario.cpf }}
+        <br />
+      </div>
+    </div>
+
+   <div class="form-row">
+    <div class="col">
+        <label>Email:</label>
+        <input class="form-control col-sm-4" type="text" ng-model="user.usuario.email" />
+        {{ user.usuario.email }}
+        <br />
+      </div>
+
+        <div class="col">
+          <label>Senha:</label>
+        <input class="form-control col-sm-4" type="password" ng-model="user.usuario.senha" />
+        {{ user.usuario.senha }}
+        <br />
+        <br />
+      </div>
+    </div>
+        <input class="btn btn-primary" type="submit" value="Salvar" />
+      </form>
+    </div>
+  </body>
+</html>

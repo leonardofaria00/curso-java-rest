@@ -3,13 +3,9 @@
 
 <head>
     <title>Curso AngularJS</title>
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/fonts.css">
-    <link rel="stylesheet" href="resources/css/meus-estilos.css">
-
-    <script src="resources/js/angular.min.js"></script>
-    <script src="resources/js/app.js"></script>
-    <script src="resources/service/login-service.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <script src="resources/js/home-controller.js"></script>
     <script src="resources/js/login-controller.js"></script>
     <script src="resources/js/recuperarSenha-controller.js"></script>
@@ -35,7 +31,7 @@
         </form>
     </div>
     <div ng-if="$root.telaSelecionada === 'HOME'">
-        Olá {{homeCtrl.service.usuario.email}}
+        Olá {{$root.usuario.email}}
     </div>
 </body>
 
