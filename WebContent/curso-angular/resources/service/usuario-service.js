@@ -1,17 +1,13 @@
 moduloPrincipal.service("UsuarioService", UsuarioService);
 
-UsuarioService.$inject = [];
+UsuarioService.$inject = ["$http"];
 
-function UsuarioService() {
+function UsuarioService($http) {
   const self = this;
 
   self.getUsuarios = function() {
-    return {
-      success: {
-        message: "Welcome to Awesome JSON Viewer.",
-        status_code: 200
-      }
-    };
-    // return "http://localhost.stefanini:8080/curso-java-rest/";
+    $http
+      .get("http://localhost.stefanini:8080/curso-java-rest/pessoa")
+      .success(callback);
   };
 }

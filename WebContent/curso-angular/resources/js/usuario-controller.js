@@ -18,8 +18,7 @@ function UsuarioController($scope, $rootScope, UsuarioService) {
     console.log($rootScope.usuario.nome);
   };
 
-  self.buscar = function(){
-    $scope.usarios = UsuarioService.getUsuarios;
-    console.log(UsuarioService.getUsuarios);
-  }
+  // UsuarioService.getUsuarios(function(data) {
+  //   $scope.usuario = data;
+  // });
 }

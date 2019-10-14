@@ -1,9 +1,6 @@
 package com.stefanini.hackathon.rest;
 
-import javax.persistence.EntityManager;
-
 import com.stefanini.hackathon.rest.entity.Pessoa;
-import com.stefanini.hackathon.rest.persistence.ConnectorBD;
 
 public class Main {
 
@@ -17,19 +14,19 @@ public class Main {
 		System.out.println(pessoa);
 
 		// consegue a entity manager
-		EntityManager em = new ConnectorBD().getEntityManager();
+//		EntityManager em = new ConnectorBD().getEntityManager();
 
 		// abre transacao
-		em.getTransaction().begin();
+//		em.getTransaction().begin();
 
 		// persiste o objeto
-		em.persist(pessoa);
+//		em.persist(pessoa);
 
 		// commita a transacao
-		em.getTransaction().commit();
+//		em.getTransaction().commit();
 
 		// fecha a entity manager
-		em.close();
+//		em.close();
 	}
 
 }

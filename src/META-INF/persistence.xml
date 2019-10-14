@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	
-	<persistence-unit name="stefanini" transaction-type="RESOURCE_LOCAL">
-	
-<!-- 		<provider>org.hibernate.ejb.HibernatePersistence</provider> -->
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-<!--         <jta-data-source>java:openejb/Resource/bancoHackatonJtaDatabase</jta-data-source> -->
-        
-		<class>com.stefanini.hackathon.rest.entity.Pessoa</class>
-		<class>com.stefanini.hackathon.rest.entity.Conta</class>
+<!-- <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"> -->
+	 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    
+<persistence-unit name="bancoHackatonUnit" transaction-type="JTA">
+	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:openejb/Resource/bancoHackatonJtaDatabase</jta-data-source>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+<!--             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" /> -->
 
-		<properties>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bancoHackaton" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="lnx4frdm" />
-
-			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="false" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			
-			<property name="tomee.jpa.factory.lazy" value="true" />
+            <!-- As many hibernate properties as you need, some examples: -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <!-- Drop and then re-create the database schema (don't do this in production) -->
+<!--             <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+            <property name="tomee.jpa.factory.lazy" value="true" />
             <property name="transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/>
-		</properties>
-	</persistence-unit>
+        </properties>
+    </persistence-unit>
+	
+<!-- 	<persistence-unit name="stefanini" transaction-type="RESOURCE_LOCAL"> -->
+	
+<!-- 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+        
+<!-- 		<class>com.stefanini.hackathon.rest.entity.Pessoa</class> -->
+<!-- 		<class>com.stefanini.hackathon.rest.entity.Conta</class> -->
+
+<!-- 		<properties> -->
+<!-- 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> -->
+<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bancoHackaton" /> -->
+<!-- 			<property name="javax.persistence.jdbc.user" value="postgres" /> -->
+<!-- 			<property name="javax.persistence.jdbc.password" value="lnx4frdm" /> -->
+
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="update" /> -->
+<!-- 			<property name="hibernate.show_sql" value="false" /> -->
+<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> -->
+			
+<!-- 			<property name="tomee.jpa.factory.lazy" value="true" /> -->
+<!--             <property name="transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/> -->
+<!-- 		</properties> -->
+<!-- 	</persistence-unit> -->
 
 </persistence>
