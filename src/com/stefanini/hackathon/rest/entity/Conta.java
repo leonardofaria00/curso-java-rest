@@ -2,11 +2,14 @@ package com.stefanini.hackathon.rest.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity(name = "conta")
+@Entity
+@Table(name = "conta")
 public class Conta implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -72,7 +75,7 @@ public class Conta implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Conta [id: " + id + ", agencia: " + agencia + ", conta: " + conta + ", senha: " + senha + "]";
+		return "Conta [id=" + id + ", agencia=" + agencia + ", conta=" + conta + ", senha=" + senha + "]";
 	}
 
 }

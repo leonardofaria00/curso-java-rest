@@ -2,13 +2,15 @@ package com.stefanini.hackathon.rest.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
-//@Entity(name = "pessoa")
+@Entity
+@Table(name = "pessoa")
 public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,10 +20,8 @@ public class Pessoa implements Serializable {
 	private Integer id;
 	private String nome;
 	private String cpf;
-	private int status = 1;
 
-	@ManyToOne
-	@JoinColumn(name = "conta_id")
+	@Transient
 	private Conta conta;
 
 	public Integer getId() {
@@ -56,17 +56,9 @@ public class Pessoa implements Serializable {
 		this.conta = conta;
 	}
 
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
 	@Override
 	public String toString() {
-		return "Pessoa [id: " + id + ", nome: " + nome + ", cpf: " + cpf + ", " + conta + "]";
+		return "Pessoa [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", " + conta + "]";
 	}
 
 }
